@@ -6,6 +6,8 @@
 public class LinkedList {
     Node first;
     Node LastNode;
+    int size;
+
 
     /**
      * Constructor to create an empty list.
@@ -20,6 +22,7 @@ public class LinkedList {
      * @param newNode
      */
     public void addLast(Node newNode) {
+        size++;
         if (first == null){
             first = newNode;
             LastNode = first;
@@ -27,6 +30,7 @@ public class LinkedList {
             LastNode = LastNode.next;
             LastNode = newNode;
         }
+
     }
 
     /**
@@ -35,8 +39,14 @@ public class LinkedList {
      * @return
      */
     public Node removeFirst() {
-        Node ReturnStuff = first;
-        return null;
+        //checks if first is null and in that case just returns it.
+        //if first would not be null it would make first be the next one in the list.
+        size--;
+        Node CurrentNode = first;
+        if (first != null) {
+            first = first.next;
+        }
+        return CurrentNode;
     }
 
     /**
@@ -46,7 +56,24 @@ public class LinkedList {
      * @return
      */
     public int size() {
-        return 0;
+        /*//variables
+        boolean size = false;
+        int ListSize = 0;
+        Node CurrentNode = first;
+
+        //checks how many there are in the list
+        while (size = false){
+            if (CurrentNode != null){
+                //adds one for everytime the next node is not null
+                size += 1;
+                //moves on to check next node
+                CurrentNode = CurrentNode.next;
+            } else {
+                //stops if node is null
+                size = true;
+            }
+        }*/
+        return size;
     }
 
     /**
